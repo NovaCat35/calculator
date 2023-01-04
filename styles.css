@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    background-color: rgb(47, 126, 169);
+    width: 450px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.resultDisplay {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    font-size: 5em;
+    background-color: beige;
+    height: 80px;
+    width: 400px;
+    border: solid 2px black;
+}
+
+/* Numbers and operations */
+.btnsContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 5em);
+    grid-template-rows: repeat(5, 5em);
+    grid-gap: 10px;
+    justify-content: center;
+}
+button {
+    border: 2px solid black;
+}
+.equalBtn {
+    grid-column: span 2;
+}
