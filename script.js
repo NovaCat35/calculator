@@ -1,14 +1,25 @@
 let displayResult = document.querySelector('.resultDisplay');
 let buttons = document.querySelectorAll('button');
 
+let number = '';
 buttons.forEach(button => button.addEventListener('mousedown', function(event){
     let btnValue = event.target.innerText;
-    
+    let btnClass = event.target.classList.value;
+    console.log(btnClass)
     // if number display
-    // if operator
-    // call operate() when classbtnValue is equal
-    // if 
-    displayResult.innerText = btnValue;
+    // if operator, wait for 2nd number
+    // call operate() when classbtnValue is equal or another operator shows up after number
+    // 
+    if(btnClass == 'clearBtn') {
+        clear();
+    }
+    if(btnClass == 'divBtn' || btnClass == 'mulBtn' || btnValue == 'subBtn' || btnValue == 'addBtn') {
+        
+    }
+    if(btnClass == 'numBtn') {
+        number += btnValue;
+        displayResult.innerText = number;
+    }
 }))
 
 function add(num1, num2) {
@@ -30,8 +41,8 @@ function divide(num1, num2) {
     return num1 /= num2;
 }
 
-function display(number) {
-    displayResult.innerText = number
+function clear() {
+
 }
 
 function operate(num1, num2, operator) {
