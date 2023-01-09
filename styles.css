@@ -8,13 +8,15 @@ html, body {
     min-height: 100vh;
 }
 body {
+    background-image: url(imgs/duck_sink.jpeg);
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 main {
-    background-color: rgb(47, 126, 169);
+    background-color: rgb(33, 37, 39);
     width: 450px;
     padding: 20px;
     display: flex;
@@ -22,6 +24,7 @@ main {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    border-radius: 25px;
 }
 
 .resultDisplay {
@@ -45,6 +48,14 @@ main {
 }
 button {
     border: 2px solid black;
+    border-radius: 10px;
+    transition: transform .1s ease-in;
+}
+button:hover {
+    transform: translateY(2px);
+}
+button:active {
+    transform: translateY(5px);
 }
 .equalBtn {
     grid-column: span 2;

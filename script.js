@@ -23,13 +23,10 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
     }
     else if(btnClass == 'divBtn' || btnClass == 'mulBtn' || btnClass == 'subBtn' || btnClass == 'addBtn') {
         // We have already an given num1, num2, and operator. Go ahead and evaluate result.
-        // Then, we assign firstNum as result to be use to calculate next expression
         if(secondNum != '') {
             result = evaluate(firstNum, secondNum, operator);
             displayResult.innerText = result;
-            firstNum = result;
-            secondNum = '';
-            result = '';
+            reassign();
         }
         operator = btnValue;
     }
@@ -48,6 +45,7 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
         if (firstNum == '' || secondNum == '') return;
         result = evaluate(firstNum, secondNum, operator);
         displayResult.innerText = result;
+        reassign();
     }
     else if(btnClass == 'dotBtn') {
         if(operator == '') {
@@ -56,8 +54,43 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
             decimalInput('2ndOperand');
         }
 
+    } else if(btnClass == 'negPos') {
+        if(displayResult.innerText == 0) 
+            return;
+        else if(operator == '') {
+            makeSign('1stOperand');
+        } else {
+            makeSign('2ndOperand');
+        }
     }
 }))
+
+// Assign firstNum as the evaluated result and clear room for new evaluation
+function reassign() {
+    firstNum = String(result);
+    secondNum = '';
+    operator = '';
+    result = '';
+}
+
+function makeSign(operand) {
+    if(operand == '1stOperand') {
+        if(!firstNum.includes('-')) {
+            firstNum = '-' + firstNum;
+        } else {
+            firstNum = firstNum.slice(1);
+        }
+        displayResult.innerText = firstNum;
+    } 
+    else {
+        if(!secondNum.includes('-')) {
+            secondNum = '-' + secondNum;
+        } else {
+            secondNum = secondNum.slice(1);
+        }
+        displayResult.innerText = secondNum;
+    }
+}
 
 function add(num1, num2) {
     return num1 + num2;
