@@ -22,6 +22,7 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
         }
     }
     else if(btnClass == 'divBtn' || btnClass == 'mulBtn' || btnClass == 'subBtn' || btnClass == 'addBtn') {
+        if(firstNum == '') return;
         // We have already an given num1, num2, and operator. Go ahead and evaluate result.
         if(secondNum != '') {
             result = evaluate(firstNum, secondNum, operator);
@@ -42,7 +43,7 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
         } 
     }
     else if(btnClass == 'equalBtn') {
-        if (firstNum == '' || secondNum == '') return;
+        if(firstNum == '' || secondNum == '') return;
         result = evaluate(firstNum, secondNum, operator);
         displayResult.innerText = result;
         reassign();
