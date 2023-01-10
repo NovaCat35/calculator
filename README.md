@@ -8,6 +8,7 @@ functions:
 CSS revamp:
 - calculator setup
 - blur background
+- change font (digital-7-mono)
 
 
 

@@ -28,21 +28,32 @@ main {
     border-radius: 25px;
 }
 
-.resultDisplay {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    overflow: hidden;
-    font-size: 5em;
-    font-family: digital-7mono;
+/* Display */
+.displayContainer {
     background-color: beige;
-    height: 80px;
+    height: 140px;
     width: 400px;
     border: solid 2px black;
     border-radius: 5px;
+    overflow: hidden;
+}
+.equationDisplay, .resultDisplay {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 10px;
+}
+.equationDisplay {
+    font-size: 1.4em;
+    height: 40px;
+}
+.resultDisplay {
+    font-size: 5em;
+    height: 100px;
+    /* font-family: digital-7mono; */
 }
 
-/* Numbers and operations */
+/** Numbers and operations **/
 .btnsContainer {
     display: grid;
     grid-template-columns: repeat(4, 5em);

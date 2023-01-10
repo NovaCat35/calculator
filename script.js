@@ -1,7 +1,8 @@
 const displayResult = document.querySelector('.resultDisplay');
+const displayEquation = document.querySelector('.equationDisplay');
 const buttons = document.querySelectorAll('button');
 
-let firstNum = '';
+let firstNum = '0';
 let secondNum = '';
 let operator = '';
 let result = '';
@@ -12,6 +13,7 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
 
     if(btnClass == 'clearBtn') {
         clear();
+        showEquation();
     }
     else if(btnClass == 'backBtn') {
         // Case 1: we're working with firstNum so we haven't made operator yet
@@ -30,22 +32,30 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
             reassign();
         }
         operator = btnValue;
+        showEquation();
     }
     else if(btnClass == 'numBtn') {
-        // Case 1: Starting off 1st operand, we have not hit operator yet
-        if(operator == '') {
+        // Case 1: replace placeholder 0
+        if(firstNum == '0' && operator == '') {
+            firstNum = '' + btnValue;
+            displayResult.innerText = firstNum;
+        }
+        // Case 2: Currently at 1st operand, we have not hit operator yet
+        else if(operator == '') {
             firstNum += btnValue;
             displayResult.innerText = firstNum;
-        // Case 2: We have enter operator and ready for 2nd operand. Awaiting result
+        // Case 3: We have enter operator and ready for 2nd operand. Awaiting result
         } else if(operator != '' && result == '') {
             secondNum += btnValue;
             displayResult.innerText = secondNum;
         } 
+        showEquation();
     }
     else if(btnClass == 'equalBtn') {
         if(firstNum == '' || secondNum == '') return;
         result = evaluate(firstNum, secondNum, operator);
         displayResult.innerText = result;
+        showEquation(true);
         reassign();
     }
     else if(btnClass == 'dotBtn') {
@@ -54,7 +64,6 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
         } else {
             decimalInput('2ndOperand');
         }
-
     } else if(btnClass == 'negPos') {
         if(displayResult.innerText == 0) 
             return;
@@ -72,6 +81,14 @@ function reassign() {
     secondNum = '';
     operator = '';
     result = '';
+}
+
+function showEquation(equalBtn = false) {
+    if(equalBtn == true) {
+        displayEquation.innerText = `${firstNum} ${operator} ${secondNum} =`;
+    } else {
+        displayEquation.innerText = `${firstNum} ${operator} ${secondNum}`;
+    }
 }
 
 function makeSign(operand) {
@@ -113,11 +130,12 @@ function divide(num1, num2) {
 }
 
 function clear() {
-    firstNum = '';
+    firstNum = '0';
     secondNum = '';
     operator = '';
     result = '';
     displayResult.innerText = 0;
+    displayEquation.innerText = '';
 }
 
 function back(operand) {
@@ -133,9 +151,7 @@ function back(operand) {
 function decimalInput(operand) {
     switch (operand) {
         case '1stOperand':
-            if (firstNum == '') {
-                firstNum = '0.';
-            } else if(!firstNum.includes('.')) {
+            if(!firstNum.includes('.')) {
                 firstNum += '.';
             }
             displayResult.innerText = firstNum;
