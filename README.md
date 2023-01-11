@@ -2,13 +2,12 @@
 TO DO:
 functions:
 - Add comma after every 3 digits
-- Display prev operations
+- shorten longer digits
 - Keyboard support
 
 CSS revamp:
 - calculator setup
 - blur background
-- change font (digital-7-mono)
 
 
 

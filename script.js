@@ -151,7 +151,10 @@ function back(operand) {
 function decimalInput(operand) {
     switch (operand) {
         case '1stOperand':
-            if(!firstNum.includes('.')) {
+            if (firstNum == '') {
+                firstNum = '0.';
+            }
+            else if(!firstNum.includes('.')) {
                 firstNum += '.';
             }
             displayResult.innerText = firstNum;

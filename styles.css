@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'Digital-7 Mono Italic';
+    src: local('Digital-7 Mono Italic'), url(assets/digital-7\(italic\).woff);
+}
 * {
     box-sizing: border-box;
 }
@@ -38,17 +42,20 @@ main {
     overflow: hidden;
 }
 .equationDisplay, .resultDisplay {
+    font-family: 'Digital-7 Mono Italic';
+    font-weight: normal;
     display: flex;
     justify-content: right;
     align-items: center;
-    padding: 10px;
+    padding-right: 15px;
 }
 .equationDisplay {
-    font-size: 1.4em;
+    padding-top: 15px;
+    font-size: 1.6em;
     height: 40px;
 }
 .resultDisplay {
-    font-size: 5em;
+    font-size: 5.5em;
     height: 100px;
     /* font-family: digital-7mono; */
 }
