@@ -2,6 +2,7 @@
     font-family: 'Digital-7 Mono Italic';
     src: local('Digital-7 Mono Italic'), url(assets/digital-7\(italic\).woff);
 }
+
 * {
     box-sizing: border-box;
 }
@@ -22,7 +23,7 @@ body {
 
 main {
     background-color: rgb(33, 37, 39);
-    width: 450px;
+    width: 470px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -36,7 +37,7 @@ main {
 .displayContainer {
     background-color: beige;
     height: 140px;
-    width: 400px;
+    width: 450px;
     border: solid 2px black;
     border-radius: 5px;
     overflow: hidden;
@@ -55,9 +56,8 @@ main {
     height: 40px;
 }
 .resultDisplay {
-    font-size: 5.5em;
+    font-size: 5em;
     height: 100px;
-    /* font-family: digital-7mono; */
 }
 
 /** Numbers and operations **/
@@ -101,7 +101,7 @@ button:active {
 footer {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     height: 45px;
     display: flex;
     justify-content: center;

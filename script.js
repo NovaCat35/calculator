@@ -42,19 +42,27 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
         }
         // Case 2: Currently at 1st operand, we have not hit operator yet
         else if(operator == '') {
-            firstNum += btnValue;
-            displayResult.innerText = firstNum;
+            if(firstNum.length <= 9) {
+                firstNum += btnValue;
+                displayResult.innerText = addCommas(firstNum);
+            } else {
+                displayResult.innerText = Number(firstNum).toExponential(2)
+            }
         // Case 3: We have enter operator and ready for 2nd operand. Awaiting result
         } else if(operator != '' && result == '') {
-            secondNum += btnValue;
-            displayResult.innerText = secondNum;
+            if(secondNum.length <= 9) {
+                secondNum += btnValue;
+                displayResult.innerText = addCommas(secondNum);
+            } else {
+                displayResult.innerText = Number(secondNum).toExponential(2)
+            }
         } 
         showEquation();
     }
     else if(btnClass == 'equalBtn') {
         if(firstNum == '' || secondNum == '') return;
         result = evaluate(firstNum, secondNum, operator);
-        displayResult.innerText = result;
+        displayResult.innerText = addCommas(result);
         showEquation(true);
         reassign();
     }
@@ -81,6 +89,13 @@ function reassign() {
     secondNum = '';
     operator = '';
     result = '';
+}
+
+function addCommas(num) {
+    // To account for decimals, we split to avoid putting commas after the dot
+    let parts = num.toString().split(".");
+    parts[0] = parts[0].replace(/(?=(?:\d{3})+$)(?!^)/g, ",");
+    return parts.join(".");
 }
 
 function showEquation(equalBtn = false) {
