@@ -8,6 +8,7 @@
 }
 
 html, body {
+    position:relative; 
     margin: 0;
     min-width: 100vw;
     min-height: 100vh;
@@ -23,7 +24,7 @@ body {
 
 main {
     background-color: rgb(33, 37, 39);
-    width: 470px;
+    width: 480px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -100,8 +101,8 @@ button:active {
 /***** FOOTER *****/
 footer {
     position: absolute;
-    bottom: 0;
-    width: 100vw;
+    left: 0; right: 0; bottom: 0; 
+    min-width: 100vw;
     height: 45px;
     display: flex;
     justify-content: center;

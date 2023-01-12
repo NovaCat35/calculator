@@ -1,8 +1,6 @@
 # Calculator!
 TO DO:
 functions:
-- Add comma after every 3 digits
-- shorten longer digits (or place digit amount limit 100,000,000)
 - Keyboard support
 
 CSS revamp:

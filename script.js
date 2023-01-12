@@ -206,3 +206,12 @@ function evaluate(num1, num2, operator) {
     }
     return Math.round(result*100)/100;
 }
+
+window.addEventListener('keydown', (event) => {
+    console.log(event.key)
+    if(event.key == 'Backspace') {
+        document.getElementById('delete').click();
+    } else{
+        document.getElementById(event.key).click();
+    }
+});
