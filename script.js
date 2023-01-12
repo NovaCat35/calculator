@@ -211,7 +211,11 @@ window.addEventListener('keydown', (event) => {
     console.log(event.key)
     if(event.key == 'Backspace') {
         document.getElementById('delete').click();
-    } else{
+    } 
+    if(event.key == 'Enter') {
+        document.getElementById('=').click();
+    }
+    else{
         document.getElementById(event.key).click();
     }
 });

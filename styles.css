@@ -22,8 +22,9 @@ body {
     align-items: center;
 }
 
+/** Main calculator body **/
 main {
-    background-color: rgb(33, 37, 39);
+    background-color: rgb(38, 44, 47);
     width: 480px;
     padding: 20px;
     display: flex;
@@ -32,16 +33,19 @@ main {
     align-items: center;
     gap: 20px;
     border-radius: 25px;
+    box-shadow: 0 10px black, 5px 10px black, -5px 10px black, 
+    0 -3px black, -5px -3px black, 5px -3px black;
 }
 
-/* Display */
+/** Display **/
 .displayContainer {
-    background-color: beige;
+    background-color: rgb(242, 242, 229);
     height: 140px;
     width: 450px;
     border: solid 2px black;
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: inset 5px 5px rgb(148, 146, 167), inset -5px -5px rgb(148, 146, 167);
 }
 .equationDisplay, .resultDisplay {
     font-family: 'Digital-7 Mono Italic';
@@ -64,7 +68,7 @@ main {
 /** Numbers and operations **/
 .btnsContainer {
     display: grid;
-    grid-template-columns: repeat(4, 5em);
+    grid-template-columns: repeat(4, 6em);
     grid-template-rows: repeat(5, 5em);
     grid-gap: 10px;
     justify-content: center;
@@ -75,14 +79,19 @@ button {
     align-items: center;
     border: 2px solid black;
     border-radius: 10px;
-    transition: transform .1s ease-in;
+    transition: transform .15s ease-out;
     font-size: 30px;
+    background-color: rgb(208, 208, 220);
+    box-shadow: 0 4px #47433f;
 }
 button:hover {
-    transform: translateY(2px);
+    transform: translateY(1px);
+    box-shadow: 0 3px #47433f;
 }
 button:active {
-    transform: translateY(5px);
+    filter: brightness(0.85);
+    transform: translateY(3px);
+    box-shadow: 0 1px;
 }
 .equalBtn {
     grid-column: span 2;
@@ -90,12 +99,28 @@ button:active {
 .numBtn, .dotBtn {
     color: white;
     background-color: rgb(145, 145, 195);
+    box-shadow: 0 4px hsl(236, 21%, 30%);
+}
+.numBtn:hover, .dotBtn:hover {
+    box-shadow: 0 3px hsl(236, 21%, 30%);
+}
+.numBtn:active, .dotBtn:active {
+    box-shadow: 0 1px hsl(240, 7%, 20%);
 }
 .clearBtn, .backBtn {
     background-color: rgba(224, 35, 69, 0.967);
+    box-shadow: 0 4px rgba(143, 33, 53, 0.967);
 }
-.backBtn img{
+.clearBtn:hover, .backBtn:hover {
+    box-shadow: 0 3px rgba(143, 33, 53, 0.967);
+}
+.clearBtn:active, .backBtn:active {
+    box-shadow: 0 1px;
+}
+.backBtn img, .backBtn img:hover{
     height: 40px;
+    /* Unknown reason why the img has a red line under it. Instead, use box-shadow 0 0 to hide it */
+    box-shadow: 0 0; 
 }
 
 /***** FOOTER *****/
