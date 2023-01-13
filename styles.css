@@ -28,7 +28,7 @@ body {
 /** Main calculator body **/
 main {
     background-color: rgb(38, 44, 47);
-    width: 480px;
+    width: 420px;
     padding: 20px;
     margin: 2em;
     display: flex;
@@ -43,15 +43,16 @@ main {
 
 /** Header **/
 h1 {
+    font-size: 28px;
     margin: 0;
     color: white;
 }
 
 /** Display **/
 .displayContainer {
-    background-color: rgb(242, 242, 229);
-    height: 140px;
-    width: 450px;
+    background-color: rgb(245, 245, 236);
+    height: 120px;
+    width: 390px;
     border: solid 2px black;
     border-radius: 5px;
     overflow: hidden;
@@ -67,19 +68,19 @@ h1 {
 }
 .equationDisplay {
     padding-top: 15px;
-    font-size: 1.6em;
+    font-size: 1.5em;
     height: 40px;
 }
 .resultDisplay {
-    font-size: 5em;
-    height: 100px;
+    font-size: 4em;
+    height: 80px;
 }
 
 /** Numbers and operations **/
 .btnsContainer {
     display: grid;
-    grid-template-columns: repeat(4, 6em);
-    grid-template-rows: repeat(5, 5em);
+    grid-template-columns: repeat(4, 5em);
+    grid-template-rows: repeat(5, 4em);
     grid-gap: 10px;
     justify-content: center;
 }
@@ -135,7 +136,6 @@ button:active {
 
 /***** FOOTER *****/
 footer {
-    margin-top: .5em;
     min-width: 100vw;
     height: 45px;
     display: flex;
@@ -161,6 +161,7 @@ footer img:hover {
 
 @media screen and (max-width: 560px){
     main {
+        margin-top: -10px;
         width: 350px;
         box-shadow: 0 8px black, 4px 8px black, -4px 8px black, 
         0 -4px black, -4px -4px black, 4px -4px black;

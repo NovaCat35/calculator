@@ -1,6 +1,7 @@
 const displayResult = document.querySelector('.resultDisplay');
 const displayEquation = document.querySelector('.equationDisplay');
 const buttons = document.querySelectorAll('button');
+const clickAudio = document.querySelector('audio[data-sound="click"]');
 
 let firstNum = '0';
 let secondNum = '';
@@ -84,6 +85,8 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
             makeSign('2ndOperand');
         }
     }
+    clickAudio.currentTime = 0;
+    clickAudio.play();
 }))
 
 // Assign firstNum as the evaluated result and clear room for new evaluation
@@ -159,10 +162,18 @@ function clear() {
 function back(operand) {
     if(operand == '1stOperand') {
         firstNum = firstNum.slice(0, -1);
-        displayResult.innerText = addCommas(firstNum);
+        if(firstNum.length <= 9){
+            displayResult.innerText = addCommas(firstNum);
+        } else{
+            displayResult.innerText = Number(firstNum).toExponential(2);
+        }
     } else {
         secondNum = secondNum.slice(0, -1);
-        displayResult.innerText = addCommas(secondNum);
+        if(secondNum.length <= 9){
+            displayResult.innerText = addCommas(secondNum);
+        } else{
+            displayResult.innerText = Number(secondNum).toExponential(2);
+        }
     }
 }
 

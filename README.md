@@ -1,7 +1,7 @@
 # Calculator!
 This project recreates a calculator using all the skills learn so far: html, css, js. There were many challenges in figuring out the logic, regex, DOM manipulation and so much breaking and refactoring of the original idea but it comes together to be all worthwhile in the end. Come take a look! 
 
-(https://novacat35.github.io/calculator/)
+https://novacat35.github.io/calculator/ 🧮
 
 
 
