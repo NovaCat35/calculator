@@ -14,10 +14,13 @@ html, body {
     min-height: 100vh;
 }
 body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-image: url(images/purple_night.jpeg);
     background-size: cover;
     background-position: center;
+    backdrop-filter: blur(1.2px);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -27,6 +30,7 @@ main {
     background-color: rgb(38, 44, 47);
     width: 480px;
     padding: 20px;
+    margin: 2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35,6 +39,12 @@ main {
     border-radius: 25px;
     box-shadow: 0 10px black, 5px 10px black, -5px 10px black, 
     0 -3px black, -5px -3px black, 5px -3px black;
+}
+
+/** Header **/
+h1 {
+    margin: 0;
+    color: white;
 }
 
 /** Display **/
@@ -125,8 +135,7 @@ button:active {
 
 /***** FOOTER *****/
 footer {
-    position: absolute;
-    left: 0; right: 0; bottom: 0; 
+    margin-top: .5em;
     min-width: 100vw;
     height: 45px;
     display: flex;
@@ -149,3 +158,42 @@ footer img {
 footer img:hover {
     transform: rotate(360deg);
 }
+
+@media screen and (max-width: 560px){
+    main {
+        width: 350px;
+        box-shadow: 0 8px black, 4px 8px black, -4px 8px black, 
+        0 -4px black, -4px -4px black, 4px -4px black;
+    }
+    h1 {
+        font-size: 25px;
+    }
+    .displayContainer {
+        height: 100px;
+        width: 330px;
+        border: solid 2px black;
+        border-radius: 5px;
+    }
+    .equationDisplay {
+        font-size: 1.2em;
+        height: 40px;
+    }
+    .resultDisplay {
+        font-size: 3em;
+        height: 50px;
+    }
+    .btnsContainer {
+        grid-template-columns: repeat(4, 4.5em);
+        grid-template-rows: repeat(5, 4em);
+        grid-gap: 10px;
+        justify-content: center;
+    }
+    button {
+        font-size: 25px;
+    }
+    footer {
+        position: absolute;
+        left: 0; right: 0; bottom: 0; 
+    }
+}
+

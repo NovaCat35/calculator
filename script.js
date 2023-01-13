@@ -22,6 +22,7 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
         } else {
             back('2ndOperand');
         }
+        showEquation();
     }
     else if(btnClass == 'divBtn' || btnClass == 'mulBtn' || btnClass == 'subBtn' || btnClass == 'addBtn') {
         if(firstNum == '') return;
@@ -46,6 +47,7 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
                 firstNum += btnValue;
                 displayResult.innerText = addCommas(firstNum);
             } else {
+                firstNum += btnValue;
                 displayResult.innerText = Number(firstNum).toExponential(2)
             }
         // Case 3: We have enter operator and ready for 2nd operand. Awaiting result
@@ -54,6 +56,7 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
                 secondNum += btnValue;
                 displayResult.innerText = addCommas(secondNum);
             } else {
+                secondNum += btnValue;
                 displayResult.innerText = Number(secondNum).toExponential(2)
             }
         } 
@@ -156,10 +159,10 @@ function clear() {
 function back(operand) {
     if(operand == '1stOperand') {
         firstNum = firstNum.slice(0, -1);
-        displayResult.innerText = firstNum;
+        displayResult.innerText = addCommas(firstNum);
     } else {
         secondNum = secondNum.slice(0, -1);
-        displayResult.innerText = secondNum;
+        displayResult.innerText = addCommas(secondNum);
     }
 }
 
