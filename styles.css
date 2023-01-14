@@ -99,7 +99,7 @@ button:hover {
     transform: translateY(1px);
     box-shadow: 0 3px #47433f;
 }
-button:active {
+button:active, .active {
     filter: brightness(0.85);
     transform: translateY(3px);
     box-shadow: 0 1px;
@@ -136,7 +136,7 @@ button:active {
 
 /***** FOOTER *****/
 footer {
-    min-width: 100vw;
+    width: 100vw;
     height: 45px;
     display: flex;
     justify-content: center;

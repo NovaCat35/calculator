@@ -9,6 +9,9 @@ let operator = '';
 let result = '';
 
 buttons.forEach(button => button.addEventListener('click', function (event) {
+    clickAudio.currentTime = 0;
+    clickAudio.play();
+
     let btnValue = event.target.innerText;
     let btnClass = event.target.classList.value;
 
@@ -85,8 +88,6 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
             makeSign('2ndOperand');
         }
     }
-    clickAudio.currentTime = 0;
-    clickAudio.play();
 }))
 
 // Assign firstNum as the evaluated result and clear room for new evaluation
@@ -145,7 +146,8 @@ function multiply(num1, num2) {
 
 function divide(num1, num2) {
     if(num2 == 0) {
-        alert(`ERROR... \n I'm afraid I can't do that.`)
+        alert(`I'm afraid I can't allow you to do that.\nImagine the due consequence being equivalent to the creation of a black whole in your neighborhood, the chaos of a time continuation paradox, or even worst . . . \nEating bitter gourd 苦瓜 >:P `);
+        return;
     }
     return num1 / num2;
 }
@@ -225,11 +227,27 @@ window.addEventListener('keydown', (event) => {
     console.log(event.key)
     if(event.key == 'Backspace') {
         document.getElementById('delete').click();
+        document.getElementById('delete').classList.add('active');
     } 
     if(event.key == 'Enter') {
         document.getElementById('=').click();
+        document.getElementById('=').classList.add('active');
     }
     else{
         document.getElementById(event.key).click();
+        document.getElementById(event.key).classList.add('active');
+    }
+});
+
+window.addEventListener('keyup', (event) => {
+    console.log(event.key);
+    if(event.key == 'Backspace') {
+        document.getElementById('delete').classList.remove('active');
+    } 
+    if(event.key == 'Enter') {
+        document.getElementById('delete').classList.remove('active');
+    }
+    else{
+        document.getElementById(event.key).classList.remove('active');
     }
 });
