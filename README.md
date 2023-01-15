@@ -15,7 +15,7 @@ https://novacat35.github.io/calculator/ 🧮
 ## Acknowledgements
 Thank you to [The Odin Project](https://www.theodinproject.com/dashboard) for laying down the ground works on this journey  :)
 
-## Image & Sounnd credits
+## Image & Sound credits
 Back icon: https://www.flaticon.com/free-icon/back-button_93634
 
 Purple_night: 知粥_ on weibo 

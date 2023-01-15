@@ -8,16 +8,19 @@ let secondNum = '';
 let operator = '';
 let result = '';
 
+
 buttons.forEach(button => button.addEventListener('click', function (event) {
     clickAudio.currentTime = 0;
     clickAudio.play();
+
+    // Issue with buttons being focus[keyboard support] after an alert prompt. To clear focus, we include the below.
+    document.activeElement.blur();
 
     let btnValue = event.target.innerText;
     let btnClass = event.target.classList.value;
 
     if(btnClass == 'clearBtn') {
         clear();
-        showEquation();
     }
     else if(btnClass == 'backBtn') {
         // Case 1: we're working with firstNum so we haven't made operator yet
@@ -33,6 +36,10 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
         // We have already an given num1, num2, and operator. Go ahead and evaluate result.
         if(secondNum != '') {
             result = evaluate(firstNum, secondNum, operator);
+            if(Number.isNaN(result)){
+                displayResult.innerText = 'Undefined';
+                return;
+            }
             displayResult.innerText = result;
             reassign();
         }
@@ -68,7 +75,13 @@ buttons.forEach(button => button.addEventListener('click', function (event) {
     }
     else if(btnClass == 'equalBtn') {
         if(firstNum == '' || secondNum == '') return;
+
         result = evaluate(firstNum, secondNum, operator);
+        if(Number.isNaN(result)){
+            displayResult.innerText = 'Undefined';
+            reassign();
+            return;
+        }
         displayResult.innerText = addCommas(result);
         showEquation(true);
         reassign();
@@ -146,7 +159,7 @@ function multiply(num1, num2) {
 
 function divide(num1, num2) {
     if(num2 == 0) {
-        alert(`I'm afraid I can't allow you to do that.\nImagine the due consequence being equivalent to the creation of a black whole in your neighborhood, the chaos of a time continuation paradox, or even worst . . . \nEating bitter gourd 苦瓜 >:P `);
+        alert(`ERROR: DIVISION BY ZERO\nI'M AFRAID I CAN'T DO THAT!\n\nImagine the due consequence being equivalent to the creation of a black whole in your neighborhood, the chaos of a time continuation paradox, or even worst . . . \nEating bitter gourd 苦瓜 >:P `);
         return;
     }
     return num1 / num2;
@@ -159,6 +172,7 @@ function clear() {
     result = '';
     displayResult.innerText = 0;
     displayEquation.innerText = '';
+    showEquation();
 }
 
 function back(operand) {
@@ -234,20 +248,21 @@ window.addEventListener('keydown', (event) => {
         document.getElementById('=').classList.add('active');
     }
     else{
-        document.getElementById(event.key).click();
-        document.getElementById(event.key).classList.add('active');
+        document.getElementById(`${event.key}`).click();
+        document.getElementById(`${event.key}`).classList.add('active');
     }
 });
 
 window.addEventListener('keyup', (event) => {
     console.log(event.key);
-    if(event.key == 'Backspace') {
-        document.getElementById('delete').classList.remove('active');
-    } 
-    if(event.key == 'Enter') {
-        document.getElementById('delete').classList.remove('active');
-    }
-    else{
-        document.getElementById(event.key).classList.remove('active');
-    }
+    // if(event.key == 'Backspace') {
+    //     document.getElementById('delete').classList.remove('active');
+    // } 
+    // if(event.key == 'Enter') {
+    //     document.getElementById('=').classList.remove('active');
+    // }
+    // else{
+    //     document.getElementById(`${event.key}`).classList.remove('active');
+    // }
+    buttons.forEach(button =>  button.classList.remove('active'));
 });
