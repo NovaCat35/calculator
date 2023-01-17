@@ -15,7 +15,7 @@ html, body {
 }
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-image: url(images/purple_night.jpeg);
+    background-image: url(images/night-ride.jpeg);
     background-size: cover;
     background-position: center;
     /* backdrop-filter: blur(2px); */
