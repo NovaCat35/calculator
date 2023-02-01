@@ -42,6 +42,12 @@ main {
     0 -3px black, -5px -3px black, 5px -3px black;
 }
 
+/* this div is stretched to achieve sticky footer */
+ .hidden {
+    display: flex;
+    flex: 1;
+}
+
 /** Header **/
 h1 {
     font-size: 28px;
@@ -63,7 +69,7 @@ h1 {
     font-family: 'Digital-7 Mono Italic';
     font-weight: normal;
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: center;
     padding-right: 15px;
 }
