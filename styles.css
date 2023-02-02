@@ -168,7 +168,6 @@ footer img:hover {
 
 @media screen and (max-width: 560px){
     main {
-        margin-top: -10px;
         width: 350px;
         box-shadow: 0 8px black, 4px 8px black, -4px 8px black, 
         0 -4px black, -4px -4px black, 4px -4px black;
