@@ -3,6 +3,7 @@ This project recreates a calculator using all the skills learn so far: html, css
 
 https://novacat35.github.io/calculator/ 🧮
 
+<img width="659" alt="Screenshot 2023-03-01 at 9 40 04 PM" src="https://user-images.githubusercontent.com/54908064/222317089-6d3b524a-b5ee-413a-8992-3e212a0a38ee.png">
 
 ## Functions
 - Basic arithmetic operations
