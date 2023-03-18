@@ -92,6 +92,7 @@ h1 {
     justify-content: center;
 }
 button {
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
