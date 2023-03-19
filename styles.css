@@ -8,7 +8,7 @@
 }
 
 html, body {
-    position:relative; 
+    position: relative; 
     margin: 0;
     min-width: 100vw;
     min-height: 100vh;
@@ -25,9 +25,14 @@ body {
     align-items: center;
     overflow: hidden; /* Hide scrollbars */
 }
+main {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+}
 
 /** Main calculator body **/
-main {
+.calculator-container {
     background-color: rgb(38, 44, 47);
     width: 420px;
     padding: 20px;
@@ -144,6 +149,7 @@ button:active, .active {
 
 /***** FOOTER *****/
 footer {
+    flex-shrink: 0;
     width: 100vw;
     height: 45px;
     display: flex;
@@ -168,7 +174,7 @@ footer img:hover {
 }
 
 @media screen and (max-width: 560px){
-    main {
+    .calculator-container {
         width: 350px;
         box-shadow: 0 8px black, 4px 8px black, -4px 8px black, 
         0 -4px black, -4px -4px black, 4px -4px black;
@@ -199,9 +205,9 @@ footer img:hover {
     button {
         font-size: 25px;
     }
-    footer {
+    /* footer {
         position: absolute;
         left: 0; right: 0; bottom: 0; 
-    }
+    } */
 }
 
